@@ -1,41 +1,15 @@
-import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import { UsersListComponent } from './users-list/users-list.component';
-import { SearchBarComponent } from './search-bar/search-bar.component';
-import usersData from '../../public/users.json';
+import { Component, Input } from '@angular/core';
+import { UserCardComponent } from '../user-card/user-card.component';
 
 @Component({
-  selector: 'app-root',
+  selector: 'app-users-list',
   standalone: true,
-  imports: [RouterOutlet, UsersListComponent, SearchBarComponent],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.css',
+  imports: [UserCardComponent],
+  templateUrl: './users-list.component.html',
+  styleUrl: './users-list.component.css',
 })
-export class AppComponent {
-  title = 'task1';
-
-  usersList: User[] = usersData.users;
-
-  filteredEmails: User[] = usersData.users;
-
-  findEmailCard(email: string) {
-    this.filteredEmails = [];
-    for (const user in this.usersList) {
-      if (
-        this.usersList[user].email
-          .toLocaleLowerCase()
-          .includes(email.toLocaleLowerCase())
-      ) {
-        this.filteredEmails.push(this.usersList[user]);
-      }
-    }
-  }
-
-  resetData(token: string) {
-    if (token === 'reset') {
-      this.filteredEmails = usersData.users;
-    }
-  }
+export class UsersListComponent {
+  @Input() usersList: User[] = [];
 }
 
 interface User {

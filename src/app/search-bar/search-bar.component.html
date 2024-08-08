@@ -1,0 +1,33 @@
+<div class="row my-5">
+  <div class="col">
+    <input
+      type="text"
+      class="form-control"
+      id="search-bar-input"
+      placeholder="Search by email"
+      #input
+    />
+  </div>
+  <div class="col-auto">
+    <button
+      type="submit"
+      id="search-btn"
+      class="btn btn-primary mb-3"
+      (click)="searchByEmail()"
+      style="display: block"
+      #searchBtn
+    >
+      Search
+    </button>
+    <button
+      type="submit"
+      id="reset-btn"
+      class="btn btn-primary mb-3"
+      (click)="resetData()"
+      style="display: none"
+      #resetBtn
+    >
+      reset
+    </button>
+  </div>
+</div>
