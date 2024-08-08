@@ -18,7 +18,7 @@
       <h3 class="card-title">{{ user.firstName }} {{ user.lastName }}</h3>
       <p class="card-title">{{ user.email }}</p>
       <p class="card-title">{{ user.phone }}</p>
-      <p class="card-title">{{ user.birthDate }}</p>
+      <p class="card-title">{{ user.birthDate | date : "mediumDate" }}</p>
     </div>
   </div>
 </div>
